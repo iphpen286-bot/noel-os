@@ -47,7 +47,7 @@ Minuten, weil das Image gebaut wird). Danach:
 ## Schritt 0: Code auf GitHub (einmalig)
 Das Startskript lädt den Code von GitHub. Dafür muss der Code in einem (öffentlichen)
 Repo liegen. Das richten Claude und du gemeinsam ein — danach steht die URL
-`https://github.com/<dein-name>/noel-os` fest und kommt in die cloud-init.
+`https://github.com/iphpen286-bot/noel-os` fest und kommt in die cloud-init.
 
 ## Spätere Updates
 Per SSH auf die VM:

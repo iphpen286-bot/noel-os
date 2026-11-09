@@ -31,6 +31,6 @@ runcmd:
   - iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
   - netfilter-persistent save || true
   # Code holen, .env setzen, starten
-  - git clone https://github.com/DEIN_GITHUB_NAME/noel-os /opt/noel-os
+  - git clone https://github.com/iphpen286-bot/noel-os /opt/noel-os
   - cp /opt/noel-os.env /opt/noel-os/.env
   - cd /opt/noel-os && docker compose up -d --build
