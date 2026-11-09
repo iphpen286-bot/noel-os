@@ -1,0 +1,36 @@
+#cloud-config
+# Noel OS — Oracle-VM-Startskript. Beim Erstellen der VM unter
+# "Advanced options → User data" einfügen. Läuft automatisch beim ersten Boot.
+# Die GROSSBUCHSTABEN-Platzhalter vorher ersetzen.
+
+package_update: true
+packages:
+  - docker.io
+  - docker-compose-v2
+  - git
+
+write_files:
+  - path: /opt/noel-os.env
+    permissions: '0600'
+    owner: root:root
+    content: |
+      DOMAIN=DEINE-DOMAIN.duckdns.org
+      APP_ORIGIN=https://DEINE-DOMAIN.duckdns.org
+      GEMINI_API_KEY=DEIN_GEMINI_KEY
+      GMX_USER=noelbreuer07@gmx.de
+      GMX_PASS=DEIN_GMX_PASSWORT
+      GMAIL_USER=breuern780@gmail.com
+      GMAIL_PASS=DEIN_GMAIL_APP_PASSWORT
+
+runcmd:
+  # Swap (hilft kleiner VM beim Bauen)
+  - [ -f /swapfile ] || (fallocate -l 2G /swapfile && chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile && echo '/swapfile none swap sw 0 0' >> /etc/fstab)
+  - systemctl enable --now docker
+  # Firewall: HTTP/HTTPS hereinlassen (Oracle-Ubuntu blockt per iptables)
+  - iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+  - iptables -I INPUT 6 -m state --state NEW -p tcp --dport 443 -j ACCEPT
+  - netfilter-persistent save || true
+  # Code holen, .env setzen, starten
+  - git clone https://github.com/DEIN_GITHUB_NAME/noel-os /opt/noel-os
+  - cp /opt/noel-os.env /opt/noel-os/.env
+  - cd /opt/noel-os && docker compose up -d --build

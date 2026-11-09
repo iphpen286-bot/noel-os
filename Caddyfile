@@ -1,0 +1,5 @@
+# Automatisches HTTPS (Let's Encrypt) für deine Domain → leitet an die App weiter.
+{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy app:8787
+}

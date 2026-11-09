@@ -1,0 +1,139 @@
+.dash {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding-top: var(--sp-3);
+}
+
+/* ---------- Hero: Datum + Zitat ---------- */
+.hero { padding: var(--sp-4) var(--sp-1) var(--sp-3); }
+.dash-date { margin-bottom: var(--sp-4); }
+
+.quote { position: relative; }
+.quote-text {
+  font-size: clamp(1.6rem, 6.4vw, 2.1rem);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.quote-author {
+  margin-top: var(--sp-3);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.quote-author::before { content: '— '; }
+
+/* ---------- Zeilen-Karte (Aufgaben) ---------- */
+.row-card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  color: var(--fg);
+}
+.row-body { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+.row-body .caption { margin-bottom: 1px; }
+.row-card > svg { color: var(--fg-tertiary); }
+
+.ring-center { display: flex; align-items: baseline; }
+.ring-num { font-size: 1.5rem; font-weight: 650; }
+.ring-denom { font-size: 0.9rem; font-weight: 500; }
+
+/* ---------- Karten-Kopf ---------- */
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-3);
+}
+.chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--fg-secondary);
+  background: var(--surface-2);
+  border-radius: var(--r-pill);
+  padding: 3px 10px;
+}
+
+/* ---------- Training ---------- */
+.training-card { color: var(--fg); }
+.training-title { margin-bottom: var(--sp-3); }
+.exercise-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  color: var(--fg-secondary);
+  font-size: 0.9375rem;
+}
+.exercise b { color: var(--fg); font-weight: 600; margin-left: 2px; }
+.dot { width: 3px; height: 3px; border-radius: 50%; background: var(--fg-quaternary); }
+
+/* ---------- Zwei Spalten (Kalorien/Protein) ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+.stat { color: var(--fg); display: flex; flex-direction: column; }
+.stat-head { display: flex; align-items: center; gap: 7px; margin-bottom: var(--sp-3); color: var(--fg-secondary); }
+.stat-head .caption { margin: 0; }
+.stat-num { font-size: 1.75rem; font-weight: 650; line-height: 1; }
+.stat .footnote { margin-top: 4px; }
+.bar {
+  margin-top: var(--sp-3);
+  height: 5px;
+  border-radius: var(--r-pill);
+  background: var(--fill-track);
+  overflow: hidden;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  background: var(--fill-strong);
+  border-radius: var(--r-pill);
+  transition: width 600ms var(--ease-out);
+}
+
+/* ---------- Mails ---------- */
+.mail-card { color: var(--fg); }
+.mail-list { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
+.mail-item { display: flex; gap: var(--sp-3); align-items: flex-start; }
+.mail-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--fill-strong); margin-top: 7px; flex-shrink: 0;
+}
+.mail-body { flex: 1; min-width: 0; }
+.mail-subject {
+  font-size: 0.9375rem; font-weight: 550; line-height: 1.3;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* ---------- Dashboard-Aufgaben (inline abhaken) ---------- */
+.dash-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--sp-3);
+}
+.dash-task {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) 0;
+}
+.dash-task-title { font-size: 0.9375rem; font-weight: 500; }
+
+/* ---------- Coach-Zeile ---------- */
+.coach-line {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  padding: var(--sp-4) var(--sp-5);
+  color: var(--fg-secondary);
+  border: 1px dashed var(--hairline-strong);
+  border-radius: var(--r-lg);
+}
+.coach-line > svg { color: var(--fg); flex-shrink: 0; margin-top: 2px; }
+.coach-line .body { font-size: 0.9375rem; line-height: 1.45; }

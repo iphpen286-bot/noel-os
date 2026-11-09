@@ -1,0 +1,105 @@
+/* ---------- Button ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 var(--sp-5);
+  border-radius: var(--r-md);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.btn-full { width: 100%; }
+.btn-primary { background: var(--fill-strong); color: var(--on-fill); }
+.btn-ghost { background: var(--surface-2); color: var(--fg); }
+.btn-quiet { background: transparent; color: var(--fg-secondary); min-height: 44px; }
+.btn:disabled { opacity: 0.4; }
+
+/* ---------- Stepper ---------- */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: 4px;
+  gap: 4px;
+}
+.stepper-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-sm);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-1);
+}
+.stepper-val {
+  flex: 1;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 650;
+}
+
+/* ---------- Segmented ---------- */
+.segmented {
+  display: flex;
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: 4px;
+  gap: 4px;
+}
+.seg {
+  flex: 1;
+  min-height: 42px;
+  border-radius: var(--r-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--fg-secondary);
+}
+.seg-active { background: var(--fill-strong); color: var(--on-fill); }
+
+/* ---------- Chip ---------- */
+.chip-toggle {
+  min-height: 42px;
+  padding: 0 var(--sp-4);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline-strong);
+  font-size: 0.9375rem;
+  font-weight: 550;
+  color: var(--fg-secondary);
+}
+.chip-active {
+  background: var(--fill-strong);
+  color: var(--on-fill);
+  border-color: var(--fill-strong);
+}
+
+/* ---------- Field / Inputs ---------- */
+.field { display: block; margin-bottom: var(--sp-4); }
+.field-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--fg-secondary);
+  margin-bottom: var(--sp-2);
+}
+.input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 var(--sp-4);
+  background: var(--surface-2);
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  color: var(--fg);
+  font: inherit;
+  font-size: 1.0625rem;
+}
+.input:focus { outline: none; border-color: var(--hairline-strong); }
+textarea.input { padding-top: 12px; min-height: 84px; resize: none; line-height: 1.4; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }

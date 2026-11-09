@@ -1,0 +1,130 @@
+/* ============================================================
+   Noel OS — Design Tokens
+   Strikt Schwarz-Weiß. Keine Akzentfarbe. Hierarchie nur über
+   Graustufen, Größe und Schriftgewicht. (Spec + apple-design)
+   ============================================================ */
+
+:root {
+  /* --- Graustufen-Rampe (semantisch, nicht roh verwenden) ---
+     Standard = Dunkelmodus: Weiß auf reinem Schwarz (OLED).      */
+  --bg: #000000;              /* reiner Hintergrund (OLED-Schwarz) */
+  --surface-1: #0c0c0d;       /* Karte Ebene 1 */
+  --surface-2: #161618;       /* Karte Ebene 2 / gedrückt */
+  --surface-3: #202023;       /* angehoben / aktiv */
+  --hairline: rgba(255, 255, 255, 0.10);  /* feine Trennlinie */
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+
+  /* Vordergrund-Stufen (Text & Icons) */
+  --fg: #ffffff;              /* primär */
+  --fg-secondary: rgba(255, 255, 255, 0.62); /* sekundär */
+  --fg-tertiary: rgba(255, 255, 255, 0.40);  /* tertiär / Hinweise */
+  --fg-quaternary: rgba(255, 255, 255, 0.24);/* deaktiviert / Spuren */
+
+  /* Fülltöne für Fortschritt/Ringe (nur Weiß in Deckkraft) */
+  --fill-track: rgba(255, 255, 255, 0.12);
+  --fill-strong: #ffffff;
+
+  /* Glas-Material (Tab-Leiste, schwebende Chrome-Flächen) */
+  --glass-bg: rgba(18, 18, 20, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 22px;
+  --glass-saturate: 150%;
+
+  /* Invertiert für Flächen, die auf Weiß sitzen (selten) */
+  --on-fill: #000000;
+
+  /* --- Radien --- */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+
+  /* --- Abstände (8pt-Raster) --- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 56px;
+
+  /* --- Typografie --- */
+  --font: -apple-system, BlinkMacSystemFont, system-ui, "SF Pro Text",
+    "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-num: "SF Pro Display", system-ui, -apple-system, sans-serif;
+
+  /* --- Easing (stark, aus emil-design-eng) --- */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* --- Dauern --- */
+  --d-press: 120ms;
+  --d-pop: 180ms;
+  --d-sheet: 320ms;
+
+  /* --- Safe Areas (Dynamic Island / Home-Indikator) --- */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* Höhe der schwebenden Tab-Leiste (Inhalt scrollt darunter) */
+  --tabbar-h: 64px;
+}
+
+/* --- Hellmodus: exakt invertiert (Schwarz auf Weiß) --- */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #ffffff;
+    --surface-1: #f5f5f7;
+    --surface-2: #ececef;
+    --surface-3: #e2e2e6;
+    --hairline: rgba(0, 0, 0, 0.10);
+    --hairline-strong: rgba(0, 0, 0, 0.16);
+
+    --fg: #000000;
+    --fg-secondary: rgba(0, 0, 0, 0.60);
+    --fg-tertiary: rgba(0, 0, 0, 0.40);
+    --fg-quaternary: rgba(0, 0, 0, 0.22);
+
+    --fill-track: rgba(0, 0, 0, 0.12);
+    --fill-strong: #000000;
+
+    --glass-bg: rgba(255, 255, 255, 0.70);
+    --glass-border: rgba(0, 0, 0, 0.10);
+
+    --on-fill: #ffffff;
+  }
+}
+
+/* Manuelle Übersteuerung (Einstellungen) */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --surface-1: #f5f5f7;
+  --surface-2: #ececef;
+  --surface-3: #e2e2e6;
+  --hairline: rgba(0, 0, 0, 0.10);
+  --hairline-strong: rgba(0, 0, 0, 0.16);
+  --fg: #000000;
+  --fg-secondary: rgba(0, 0, 0, 0.60);
+  --fg-tertiary: rgba(0, 0, 0, 0.40);
+  --fg-quaternary: rgba(0, 0, 0, 0.22);
+  --fill-track: rgba(0, 0, 0, 0.12);
+  --fill-strong: #000000;
+  --glass-bg: rgba(255, 255, 255, 0.70);
+  --glass-border: rgba(0, 0, 0, 0.10);
+  --on-fill: #ffffff;
+}
+
+/* Frostiger, wenn Transparenz reduziert ist (apple-design §14) */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-bg: #0c0c0d;
+    --glass-blur: 0px;
+  }
+  :root[data-theme="light"] { --glass-bg: #f5f5f7; }
+}

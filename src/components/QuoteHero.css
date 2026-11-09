@@ -1,0 +1,130 @@
+.qhero {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: #000;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--sp-6);
+  isolation: isolate;
+}
+
+.qhero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  /* Sicherheitsnetz, falls der eingebrannte Verlauf mal fehlt */
+  filter: grayscale(1);
+}
+
+.qhero-content { position: relative; }
+
+.qhero-date {
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: var(--sp-3);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.8);
+}
+
+/* Vibrancy: heller, etwas schwerer, zartes Tracking + Schatten für Lesbarkeit */
+.qhero-text {
+  color: #fff;
+  font-size: clamp(1.65rem, 6.6vw, 2.15rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 650;
+  text-wrap: balance;
+  text-shadow: 0 1px 24px rgba(0, 0, 0, 0.55);
+}
+
+.qhero-author {
+  margin-top: var(--sp-4);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.qhero-author::before { content: '— '; }
+
+/* Mehr Kontrast gewünscht → Text noch klarer absetzen */
+@media (prefers-contrast: more) {
+  .qhero-text { text-shadow: 0 1px 2px #000, 0 2px 18px rgba(0, 0, 0, 0.9); }
+}
+
+/* ---------- Variante B: eigenes Bild ganz zeigen, Zitat darunter ---------- */
+.qhero--asis {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  background: #000;
+  border: 1px solid var(--hairline);
+}
+.qhero-full {
+  display: block;
+  width: 100%;
+  height: 52vh;
+  max-height: 540px;
+  object-fit: cover;
+  object-position: center;
+}
+.qhero-below {
+  padding: var(--sp-5) var(--sp-5) var(--sp-6);
+  background: var(--bg);
+}
+.qhero-below .caption { margin-bottom: var(--sp-3); }
+.qhero-text-b {
+  color: var(--fg);
+  font-size: clamp(1.3rem, 5.2vw, 1.6rem);
+  line-height: 1.26;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.qhero-author-b {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.qhero-author-b::before { content: '— '; }
+
+.qhero-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.qhero-actions { display: flex; align-items: center; gap: var(--sp-1); flex-shrink: 0; }
+
+/* Herz + Hinzufügen */
+.q-heart {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--fg-secondary);
+}
+.q-heart[aria-pressed='true'] { color: var(--fg); }
+.q-heart.light {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  z-index: 1;
+}
+.q-add {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--fg-secondary);
+}

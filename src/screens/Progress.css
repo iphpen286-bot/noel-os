@@ -1,0 +1,30 @@
+.trend { font-size: 0.9rem; font-weight: 650; color: var(--fg-secondary); }
+.trend.up { color: var(--fg); }
+.trend.down { color: var(--fg-tertiary); }
+
+.weight-big { font-size: 2.4rem; font-weight: 650; line-height: 1; margin-top: var(--sp-2); }
+.weight-unit { font-size: 1rem; color: var(--fg-tertiary); font-weight: 500; }
+
+.chart-wrap { margin-top: var(--sp-4); }
+.chart { width: 100%; height: 110px; display: block; }
+.chart-empty { padding: var(--sp-6) 0; text-align: center; }
+
+.strength-list { display: flex; flex-direction: column; gap: var(--sp-2); }
+.strength-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: var(--surface-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: 0.9375rem;
+}
+.strength-val { font-weight: 650; }
+
+.photo-card {
+  background: var(--surface-1);
+  border: 1px dashed var(--hairline-strong);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+}

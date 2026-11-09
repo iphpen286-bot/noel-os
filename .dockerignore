@@ -1,0 +1,8 @@
+node_modules
+dist
+dev-dist
+data
+.git
+*.log
+scripts/shoot*.mjs
+.env

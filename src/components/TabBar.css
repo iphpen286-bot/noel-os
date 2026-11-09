@@ -1,0 +1,58 @@
+/* Glas-Tableiste: schwebt, Inhalt scrollt darunter durch (apple-design §12) */
+.tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  padding: 0 var(--sp-3);
+  padding-bottom: var(--safe-bottom);
+  background: linear-gradient(
+    to top,
+    var(--bg) 18%,
+    color-mix(in srgb, var(--bg) 0%, transparent)
+  );
+}
+
+.tabbar-inner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  height: var(--tabbar-h);
+  margin: 0 auto;
+  max-width: 520px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-pill);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  margin-bottom: var(--sp-2);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 100%;
+  border-radius: var(--r-pill);
+  color: var(--fg-tertiary);
+  transition: color var(--d-pop) var(--ease-out),
+              transform var(--d-press) var(--ease-out);
+}
+
+.tab-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.tab-active { color: var(--fg); }
+
+.tab:active { transform: scale(0.92); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tab:active { transform: none; }
+}

@@ -1,0 +1,12 @@
+Bildquellen — Hero-Motive (Zitat des Tages)
+============================================
+
+Aktuell nur vom Nutzer selbst bereitgestellte Bilder:
+- user-discipline.jpg   (DISCIPLINE / Statue)
+- user-definition.jpg   (discipline — Definition)
+
+Diese Bilder stammen vom Nutzer. Für die private Nutzung in dieser App ok.
+Bei öffentlicher Verbreitung der App müssten die Bildrechte geklärt werden.
+
+Weitere eigene Bilder können jederzeit in diesem Ordner ergänzt und in
+src/lib/heroes.ts eingetragen werden.
