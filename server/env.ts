@@ -8,7 +8,9 @@ export const DATA_DIR = process.env.DATA_DIR || join(process.cwd(), 'data')
 mkdirSync(DATA_DIR, { recursive: true })
 
 export const PORT = Number(process.env.PORT || 8787)
-export const APP_ORIGIN = process.env.APP_ORIGIN || `http://localhost:${PORT}`
+// APP_ORIGIN automatisch: Render liefert RENDER_EXTERNAL_URL, sonst localhost.
+export const APP_ORIGIN =
+  process.env.APP_ORIGIN || process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`
 
 // ---- KI-Anbieter (Gemini gratis bevorzugt, Claude optional) ----
 export const GEMINI_API_KEY = process.env.GEMINI_API_KEY || ''

@@ -1,0 +1,24 @@
+# Render Blueprint — ein Klick-Deploy. render.com → New → Blueprint → dieses Repo.
+# Beim Anlegen fragt Render die 3 Geheimnisse (sync:false) ab — die tippst du dort ein.
+services:
+  - type: web
+    name: noel-os
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Benutzernamen sind unkritisch → fest hinterlegt
+      - key: GMX_USER
+        value: noelbreuer07@gmx.de
+      - key: GMAIL_USER
+        value: breuern780@gmail.com
+      # Geheimnisse → Render fragt sie beim Anlegen ab (landen nie im Repo)
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GMX_PASS
+        sync: false
+      - key: GMAIL_PASS
+        sync: false
